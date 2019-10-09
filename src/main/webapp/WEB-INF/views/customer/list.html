@@ -11,6 +11,9 @@
 <p>
     <a th:href="@{/province/create}">Create new Province</a>
 </p>
+<p>
+    <a th:href="@{/provinces}">List province</a><br>
+</p>
 <th:block th:if="${message}">
     <p th:text="${message}"></p>
 </th:block>
@@ -39,6 +42,11 @@
         </tr>
     </th:block>
 </table>
+<div>
+    <a th:href="@{'/'(page=${customers.number - 1})}" th:if="${customers.hasPrevious()}">Previous</a>
+    <span th:text="${customers.number + 1}"></span>/<span th:text="${customers.totalPages}"></span>
+    <a th:href="@{'/'(page=${customers.number + 1})}" th:if="${customers.hasNext()}">Next</a>
+</div>
 <p>
 <form action="#" th:action="@{/customer/search}" method="get">
     <input type="submit" value="Search">
