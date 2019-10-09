@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View customer</title>
+</head>
+<body>
+<h1>View Customer</h1>
+<form action="#" th:action="@{/customer/view/done}" method="post" th:object="${customer}"  novalidate = "novalidate">
+    <table>
+        <td> <input th:type="hidden" th:field="*{id}"></td>
+
+        <tr>
+            <td>Firstname: </td>
+            <td>
+                <th:block th:text="${customer.firstName}">
+
+                </th:block>
+            </td>
+
+        </tr>
+        <tr>
+            <td>Lastname: </td>
+            <td> <th:block th:text="${customer.lastName}"></th:block></td>
+        </tr>
+        <tr>
+            <td>Province: </td>
+            <td>
+                <th:block th:text="${customer.province.name}"></th:block>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Back to list customer"></td>
+        </tr>
+    </table>
+
+</form>
+</body>
+</html>
